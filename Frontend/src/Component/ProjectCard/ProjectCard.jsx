@@ -8,14 +8,15 @@ import { CgNotes } from "react-icons/cg";
 import { PiPencilSimpleLineLight } from "react-icons/pi";
 import { CgMenuGridO } from "react-icons/cg";
 import { CiMenuKebab } from "react-icons/ci";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 
 const ProjectCard = () => {
   return (
     <>
-    <div className="bg-white rounded-lg p-6 flex items-center justify-between space-x-6 border-2 border-gray-200 w-[95%] mt-3">
+    <div className="bg-white rounded-lg p-2 flex items-center justify-between space-x-6 border-2 border-gray-200 w-[95%] mt-3">
       {/* Left section */}
-      <div className="flex items-center space-x-4 mt-[-1%] w-[45%]">
+      <div className="flex items-center space-x-4 mt-1 ml-4 w-[45%]">
         {/* Icon and Follow-up */}
         <div className="flex flex-col items-center">
           <div className="bg-green-200 rounded-full p-4">
@@ -29,21 +30,22 @@ const ProjectCard = () => {
         
         {/* Project Info */}
         <div>
-          <h2 className="text-lg text-black">Brown's Bathroom Remodel <span className="text-xs bg-gray-200 px-2 py-1 ml-2 rounded-lg">0185000</span> </h2>
-          <div className="flex space-x-4 mt-2 text-gray-600 text-xs">
+          <h2 className="text-lg text-black">Brown's Bathroom Remodel <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 ml-2 rounded-lg">0185000</span> </h2>
+          <div className="flex space-x-4 mt-2 text-gray-500 text-sm">
             <span className="flex items-center">
             <span><IoCallOutline className="text-lg mr-2 font-bold" /> </span> (907) 555-0101
             </span>
-            <span className="flex items-center">
-            <span><CiMail className="text-lg mr-2" /> </span> example@email.com
-            </span>
+            <div className="flex items-center">
+            <CiMail className="text-xl mr-2" />  <span className="text-sm"> example@email.com </span> </div> 
           </div>
-          <p className="flex mt-3 mb-[15%] text-xs text-gray-600"> <IoLocationOutline className="text-lg" /> 4517 Washington Ave. Manchester, Kentucky 39495</p>
+          <p className="flex mt-3 mb-[15%] text-xs text-gray-600"> <IoLocationOutline className="text-lg text-gray-500" /> 4517 Washington Ave. Manchester, Kentucky 39495</p>
+          <p className="flex text-xs text-gray-500 font-bold">SHOW MORE  <MdKeyboardArrowDown className="text-lg ml-1 -mt-0.5" /></p>
         </div>
       </div>
-
-      {/* Right section */}
-      <div className="flex items-center space-x-8 justify-between mt-[-8%] ml-[-3%] w-[55%] text-gray-600 border-2 border-red-600">
+      <div className="">
+        <div className="">
+           {/* Right section */}
+      <div className="flex items-center space-x-8 justify-between mr-5 text-gray-600 ">
         {/* Project Info Dropdown */}
         <div>
           <label className="block text-xs  text-gray-700">Project Info</label>
@@ -77,16 +79,23 @@ const ProjectCard = () => {
           </div>
         </div>
       </div>
+        </div>
+      
+      <div className="flex text-lg space-x-5 text-gray-500 float-right mt-[10%] mr-5">
+       <butoon className="hover:cursor-pointer hover:text-xl hover:text-black"><CiCamera/></butoon>
+       <div className="indicator">
+    <span className="w-2 indicator-item badge text-white text-xs bg-teal-500">4</span>
+    <butoon className="hover:cursor-pointer hover:text-xl hover:text-black"><CgNotes/> </butoon>
     </div>
-    <div className="flex flex-row w-[35%] relative ml-[56%] mt-[-10%] text-lg space-x-5 text-gray-600">
-       <butoon><CiCamera/></butoon>
-       <butoon><CgNotes/></butoon>
-       <butoon><PiPencilSimpleLineLight /></butoon>
-       <butoon><CgMenuGridO /></butoon>
-       <butoon><CiMenuKebab /></butoon>
-       <div className="flex ml-10">
-        <span className="text-xs ml-5">RECORD COMMUNICATION </span>
+       <butoon className="hover:cursor-pointer hover:text-xl hover:text-black"><PiPencilSimpleLineLight /></butoon>
+       <butoon className="hover:cursor-pointer hover:text-xl hover:text-black"><CgMenuGridO /></butoon>
+       <butoon className="hover:cursor-pointer hover:text-xl hover:text-black"><CiMenuKebab /></butoon>
+       <div className="flex ml-10 hover:text-black">
+        <button className="text-xs ml-5">RECORD COMMUNICATION </button>
         <FaChevronDown className="text-xs mt-0.5 ml-2"/> </div>
+   
+        </div>
+      </div>
     </div>
     </>
   );
