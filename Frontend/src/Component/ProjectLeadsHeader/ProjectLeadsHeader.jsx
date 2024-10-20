@@ -39,7 +39,7 @@ const ProjectLeadsHeader = () => {
     };
 
     return (
-        <div className="relative p-4 bg-gray-50">
+        <div className="relative bg-gray-50">
             {/* Header */}
             <div className="flex justify-between items-center bg-white border-b-2 border-gray-100 p-4">
                 {/* Left Section - Title */}
