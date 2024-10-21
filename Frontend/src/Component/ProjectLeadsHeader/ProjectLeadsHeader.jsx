@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { BsPlayCircle } from "react-icons/bs";
 import { BsSortDown } from "react-icons/bs";
 import { AiOutlineFilter } from "react-icons/ai";
@@ -10,7 +10,7 @@ const ProjectLeadsHeader = () => {
     const [sortOption, setSortOption] = useState("latest");
     const [filterOption, setFilterOption] = useState("all");
     const [showForm, setShowForm] = useState(false);
-    const [oneWay, setOneWay] = useState(true); // State to determine if the trip is one-way
+    const [oneWay, setOneWay] = useState(false); // Set to false to allow start and end date selection
     const [value, setValue] = useState({
         startDate: new Date(), // Default start date
         endDate: new Date(),   // Default end date
@@ -49,7 +49,7 @@ const ProjectLeadsHeader = () => {
                 </div>
 
                 {/* Right Section - Controls */}
-                <div className="flex space-x-3 items-center ml-[10%] float-right -mr-5 w-[60%]">
+                <div className="flex space-x-3 items-center ml-[1%] float-right -mr-12 w-[70%]">
                     {/* Sort by */}
                     <div className="relative flex items-center space-x-2 border rounded-md px-3 py-1 text-gray-500 text-sm">
                         <BsSortDown className="text-lg" />
@@ -75,24 +75,24 @@ const ProjectLeadsHeader = () => {
                             value={filterOption}
                             onChange={handleFilterChange}
                         >
-                               <option value="new">New</option>
-                                    <option value="contact">Contact</option>
-                                    <option value="upload">Upload Scope</option>
-                                    <option value="estimate">Estimate</option>
-                                    <option value="sign-contract">Sign Contract</option>
-                                    <option value="payment">Payment</option>
-                                    <option value="installation">Installation</option>
-                                    <option value="completed">Completed</option>
-                                    <option value="feedback">Feedback</option>
+                            <option value="new">New</option>
+                            <option value="contact">Contact</option>
+                            <option value="upload">Upload Scope</option>
+                            <option value="estimate">Estimate</option>
+                            <option value="sign-contract">Sign Contract</option>
+                            <option value="payment">Payment</option>
+                            <option value="installation">Installation</option>
+                            <option value="completed">Completed</option>
+                            <option value="feedback">Feedback</option>
                         </select>
                     </div>
 
                     {/* Datepicker */}
-                    <div className="w-[35%]">
+                    <div className="w-[40%]">
                         <Datepicker
                             inputClassName={"w-full border-[1px] border-gray-300 p-0.5 rounded-md bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"}
                             containerClassName=""
-                            asSingle={oneWay}
+                            asSingle={false} // Set to false to show both start and end date
                             primaryColor={"blue"}
                             value={value}
                             showShortcuts={true}
@@ -150,19 +150,17 @@ const ProjectLeadsHeader = () => {
                                     />
                                 </div>
                             </div>
-
-                            {/* Row 2: Address */}
-                            <div className="mb-4">
-                                <label className="block text-sm font-medium text-gray-700">Address</label>
-                                <input
-                                    type="text"
-                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                    placeholder="4517 Washington Ave. Manchester, Kentucky 39495"
-                                />
-                            </div>
-
-                            {/* Row 3: Dropdown */}
-                            <div className="mb-4">
+                              {/* Row 2: Dropdown and Name */}
+                            <div className="flex space-x-4 mb-4">
+                                <div className="flex-1">
+                                    <label className="block text-sm font-medium text-gray-700">Name</label>
+                                    <input
+                                        type="name"
+                                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                        placeholder="John Doe"
+                                    />
+                                </div>
+                                <div className="flex-1">
                                 <label className="block text-sm font-medium text-gray-700">Select Action</label>
                                 <select className="dropdown menu dropdown-content bg-white z-[1] p-2 mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-gray-500 sm:text-sm">
                                     <option value="new">New</option>
@@ -175,7 +173,19 @@ const ProjectLeadsHeader = () => {
                                     <option value="completed">Completed</option>
                                     <option value="feedback">Feedback</option>
                                 </select>
+                                </div>
                             </div>
+
+                            {/* Row 3: Addrss */}
+                            <div className="mb-4">
+                                <label className="block text-sm font-medium text-gray-700">Address</label>
+                                <input
+                                    type="text"
+                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    placeholder="4517 Washington Ave. Manchester, Kentucky 39495"
+                                />
+                            </div>
+
                             <button className='btn btn-primary w-full'>Submit</button>
                         </div>
                     </div>

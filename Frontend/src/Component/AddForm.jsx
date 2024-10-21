@@ -22,6 +22,7 @@ const AddForm = () => {
       {/* Conditional Form Rendering */}
       {showForm && (
         <div className="mt-4 p-4 bg-white border border-gray-500 rounded-md">
+          
           {/* Row 1: Email and Phone */}
           <div className="flex space-x-4 mb-4">
             <div className="flex-1">
@@ -46,7 +47,31 @@ const AddForm = () => {
             </div>
           </div>
 
-          {/* Row 2: Address */}
+          {/* Row 2: Name and Dropdown */}
+          <div className="flex space-x-4 mb-4">
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700">
+                Name
+              </label>
+              <input
+                type="text"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                placeholder="John Doe"
+              />
+            </div>
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700">
+                Select Action
+              </label>
+              <select className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                <option value="new">New</option>
+                <option value="contact">Contact</option>
+                <option value="upload">Upload Scope</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Row 3: Address */}
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">
               Address
@@ -57,18 +82,13 @@ const AddForm = () => {
               placeholder="4517 Washington Ave. Manchester, Kentucky 39495"
             />
           </div>
-
-          {/* Row 3: Dropdown */}
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Select Action
-            </label>
-            <select className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-              <option value="new">New</option>
-              <option value="contact">Contact</option>
-              <option value="upload">Upload Scope</option>
-            </select>
-          </div>
+          <button>asdf</button>
+          {/* Submit Button */}
+          <button
+            className="w-full px-4 py-2 text-white bg-purple-600 rounded-md hover:bg-purple-700"
+          >
+            Submit
+          </button>
         </div>
       )}
     </div>
