@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { LuLayoutDashboard } from "react-icons/lu";
 import { WiTime12 } from "react-icons/wi";
 import { CiViewList } from "react-icons/ci";
@@ -16,6 +17,12 @@ import { MdOutlineArrowForwardIos } from "react-icons/md";
 
 
 const Sidebar = () => {
+  const [activeItem, setActiveItem] = useState("Dashboard"); 
+
+  const handleItemClick = (label) => {
+    setActiveItem(label); // Update the active item
+  };
+
   return (
     <div className="h-screen w-64 bg-white border-r-2 border-gray-100 flex flex-col justify-between">
       <div className="p-4">
@@ -30,7 +37,7 @@ const Sidebar = () => {
 
         {/* Search Box */}
         <div className="relative mb-6">
-        <CiSearch className="text-xl text-gray-400 absolute m-2" />
+          <CiSearch className="text-xl text-gray-400 absolute m-2" />
           <input
             type="text"
             placeholder="Search"
@@ -43,9 +50,18 @@ const Sidebar = () => {
           <p className="text-xs text-gray-500 mb-3">MAIN MENU</p>
 
           {menuItems.map((item, index) => (
-            <div key={index} className="flex items-center space-x-3 py-2 px-3 rounded-md text-gray-400 hover:text-teal-600 hover:font-bold hover:bg-gray-100 transition cursor-pointer text-lg">
+            <div
+              key={index}
+              onClick={() => handleItemClick(item.label)} // Set the item as active on click
+              className={`flex items-center space-x-3 py-2 px-3 rounded-md cursor-pointer text-lg transition
+                ${
+                  activeItem === item.label
+                    ? "bg-gray-100 text-teal-500 font-bold" // Highlight the active item
+                    : "text-gray-400 hover:text-teal-600 hover:bg-gray-100" // Default style for non-active items
+                }`}
+            >
               {item.icon}
-              <span className={`text-sm text-gray-400 font-medium hover:text-black ${item.active ? 'text-blue-500' : 'text-gray-700'}`}>
+              <span className={`text-sm ${activeItem === item.label ? 'text-black' : 'text-gray-700'}`}>
                 {item.label}
               </span>
             </div>
@@ -59,19 +75,19 @@ const Sidebar = () => {
           <img
             src="https://via.placeholder.com/40"
             alt="User"
-            className="w-10 h-10 rounded-full mr-2 border-b p-0.5 "
+            className="w-10 h-10 rounded-full mr-2 border-b p-0.5"
           />
-          <div className="text-xs items-center ">
+          <div className="text-xs items-center">
             <div className="flex">
               <p className="text-lg ml-2">Jacob Jones</p>
               <MdOutlineArrowForwardIos className="text-sm ml-8 mt-2" />
             </div>
           </div>
         </div>
-       <p className="mt-12 text-sm ml-2 absolute">8:25 AM</p>
-       <p className="mt-[5%] ml-2 absolute text-xs text-gray-500">FEB 27, 2022</p>
+        <p className="mt-12 text-sm ml-2 absolute">8:25 AM</p>
+        <p className="mt-[5%] ml-2 absolute text-xs text-gray-500">FEB 27, 2022</p>
         <button className="text-gray-500 hover:text-blue-500 mt-[25%]">
-        <FaCheckCircle />
+          <FaCheckCircle />
         </button>
       </div>
     </div>
@@ -82,17 +98,16 @@ const Sidebar = () => {
 const menuItems = [
   { label: 'Dashboard', icon: <LuLayoutDashboard /> },
   { label: 'Time Tracking', icon: <WiTime12 /> },
-  { label: 'Task List', icon: <CiViewList />},
-  { label: 'Lead Pipeline', icon: <BsTextParagraph />},
+  { label: 'Task List', icon: <CiViewList /> },
+  { label: 'Lead Pipeline', icon: <BsTextParagraph /> },
   { label: 'Estimates', icon: <IoReceiptOutline /> },
   { label: 'Invoices', icon: <LiaFileInvoiceSolid /> },
-  { label: 'Projects', icon: <MdWorkOutline/> },
-  { label: 'Schedule', icon: <IoCalendarOutline />},
-  { label: 'Photos & Files', icon: <TbPhoto/> },
-  { label: 'Customers', icon: <MdOutlinePeopleAlt />  },
+  { label: 'Projects', icon: <MdWorkOutline /> },
+  { label: 'Schedule', icon: <IoCalendarOutline /> },
+  { label: 'Photos & Files', icon: <TbPhoto /> },
+  { label: 'Customers', icon: <MdOutlinePeopleAlt /> },
   { label: 'Map', icon: <GrMapLocation /> },
   { label: 'Reports', icon: <TfiStatsUp /> },
 ];
-
 
 export default Sidebar;

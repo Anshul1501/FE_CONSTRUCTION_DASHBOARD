@@ -8,22 +8,37 @@ import Sidebar from './Component/Sidebar/Sidebar'
 function App() {
   return (
 
- <>
- <div className='w-[100%] flex'>
-  <div className='w-[18%]'>
-    <Sidebar/>
+    <>
+    <div className="w-[100%] h-screen flex">
+  {/* Sidebar */}
+  <div className="w-[18%] h-full">
+    <Sidebar />
   </div>
-  <div className='w-[82%] ml-[-3px]'>
-    <Filters/>
-    <ProgressTracker/>
-  <div className='flex flex-col place-content-center space-y-3 bg-gray-50 items-center'>
-  <ProjectCard/>
-  <ProjectCard/>
+
+  {/* Main Content */}
+  <div className="w-[82%] h-full flex flex-col">
+    {/* Filters and ProgressTracker */}
+    <div className="flex-none">
+      <Filters />
+    </div>
+    <div className="flex-none">
+      <ProgressTracker />
+    </div>
+
+    {/* Scrollable Project Card Section */}
+    <div className="flex-grow justify-items-center overflow-y-scroll bg-gray-50 items-center ml-[5%]">
+      <ProjectCard />
+      <ProjectCard />
+      <ProjectCard />
+      <ProjectCard />
+      <ProjectCard />
+      <ProjectCard />
+    </div>
   </div>
-  </div>
- </div>
- </>
-   
+</div>
+
+    </>
+
   )
 }
 

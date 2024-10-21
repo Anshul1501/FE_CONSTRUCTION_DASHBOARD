@@ -12,6 +12,13 @@ body {
     font-family: 'Urbanist', sans-serif;
 }
 
+html,
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden
+}
+
 .clerfix:after {
     clear: both;
     content: "";
