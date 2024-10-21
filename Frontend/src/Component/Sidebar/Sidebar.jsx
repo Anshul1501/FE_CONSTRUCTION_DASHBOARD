@@ -56,7 +56,7 @@ const Sidebar = () => {
               className={`flex items-center space-x-3 py-2 px-3 rounded-md cursor-pointer text-lg transition
                 ${
                   activeItem === item.label
-                    ? "bg-gray-100 text-teal-500 font-bold" // Highlight the active item
+                    ? "bg-gray-50 text-teal-500 font-bold" // Highlight the active item
                     : "text-gray-400 hover:text-teal-600 hover:bg-gray-100" // Default style for non-active items
                 }`}
             >

@@ -26,7 +26,7 @@ function App() {
     </div>
 
     {/* Scrollable Project Card Section */}
-    <div className="flex-grow justify-items-center overflow-y-scroll bg-gray-50 items-center ml-[5%]">
+    <div className="flex-grow justify-items-center overflow-y-scroll bg-gray-50 items-center">
       <ProjectCard />
       <ProjectCard />
       <ProjectCard />
